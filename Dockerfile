@@ -1,5 +1,5 @@
 # STAGE 1
-FROM gradle:jdk21 as builder
+FROM gradle:jdk26 as builder
 
 WORKDIR /app
 
