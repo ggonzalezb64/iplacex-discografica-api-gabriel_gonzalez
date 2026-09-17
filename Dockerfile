@@ -1,18 +1,13 @@
 # STAGE 1
-FROM gradle:7.6-jdk21 AS builder
+FROM gradle:8.0-jdk21 AS builder
 
 WORKDIR /app
 
-COPY gradlew settings.gradle build.gradle /app/
-COPY gradle /app/gradle
-
-RUN chmod +x ./gradlew
-
-RUN ./gradlew dependencies --no-daemon || true
+COPY settings.gradle build.gradle /app/
 
 COPY src /app/src
 
-RUN ./gradlew build --no-daemon -x test
+RUN gradle build --no-daemon -x test
 
 # STAGE 2
 FROM eclipse-temurin:21-jre-alpine
