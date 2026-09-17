@@ -1,5 +1,5 @@
-# STAGE 1: Compilación usando Gradle 8 con JDK 21
-FROM gradle:8-jdk21 AS builder
+# STAGE 1
+FROM gradle:7.6-jdk21 AS builder
 
 WORKDIR /app
 
